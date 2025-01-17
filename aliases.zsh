@@ -1,0 +1,8 @@
+alias ls='eza -l --color=always --group-directories-first --icons'
+alias la='eza -al --color=always --group-directories-first --icons'
+alias ll='eza -l --color=always --group-directories-first --icons'
+alias ip='ip -color'
+alias cat='batcat'
+alias ..='cd ..'
+alias grep='grep --color=auto'
+alias src='source /home/john/.zshrc'
