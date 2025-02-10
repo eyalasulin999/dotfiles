@@ -8,6 +8,7 @@ ZSH_CUSTOM_DIR="$HOME/.oh-my-zsh/custom"
 FZF_PATH="$ZSH_CUSTOM_DIR/fzf.zsh"
 FZF_GIT_PATH="$ZSH_CUSTOM_DIR/fzf-git.zsh"
 ALIASES_PATH="$ZSH_CUSTOM_DIR/aliases.zsh"
+PATH_PATH="$ZSH_CUSTOM_DIR/path.zsh"
 
 
 ## UTILs ##
@@ -96,6 +97,14 @@ shell() {
         echo "[+] Remove $ALIASES_PATH and create symlink"
         rm $ALIASES_PATH
         ln -s $DOTFILES_DIR/aliases.zsh $ALIASES_PATH
+    fi
+
+    if ! overwrite_file $PATH_PATH; then
+        echo "[-] Skipping $PATH_PATH"
+    else
+        echo "[+] Remove $PATH_PATH and create new one"
+        rm $PATH_PATH
+        echo "PATH=:\$PATH" > $PATH_PATH
     fi
     
     echo "[+] Shell configuration done"
